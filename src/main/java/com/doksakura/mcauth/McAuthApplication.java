@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class McAuthApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(McAuthApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(McAuthApplication.class, args);
+    }
 
 }

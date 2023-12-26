@@ -1,2 +1,7 @@
-package com.doksakura.mcauth.service;public class LoginService {
+package com.doksakura.mcauth.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoginService {
 }
