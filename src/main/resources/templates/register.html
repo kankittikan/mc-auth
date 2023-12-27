@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register - MC Doksakura</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body style="background-image: url(https://content.doksakura.com/images/MCBG.jpeg)">
+<div class="container p-4 d-flex justify-content-center align-items-center min-vh-100">
+    <form class="bg-white p-5 rounded-5" th:href="@{/register}" method="post">
+        <div class="text-center"><h4>Register - ลงทะเบียน</h4></div>
+        <input name="id" type="hidden" th:value="${uuid}">
+        <div class="my-3">
+            <label class="form-label">ชื่อผู้เล่น</label>
+            <input class="form-control" th:placeholder="${name}" disabled>
+            <input name="name" type="hidden" th:value="${name}">
+        </div>
+        <div class="my-3">
+            <label class="form-label">อีเมลล์</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+        <div class="my-3">
+            <label class="form-label">รหัสผ่าน</label>
+            <input type="password" class="form-control" aria-describedby="passwordHelp" name="password">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ยืนยันรหัสผ่าน</label>
+            <input type="password" class="form-control" aria-describedby="passwordHelp" name="confirmPassword">
+        </div>
+        <div class="text-danger" th:text="${error}"></div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success mx-4">ยืนยัน</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 public class Player {
@@ -14,4 +16,5 @@ public class Player {
     @Column(unique = true)
     private String email;
     private String password;
+    private LocalDateTime lastLogin;
 }

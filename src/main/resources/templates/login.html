@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - MC Doksakura</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body style="background-image: url(https://content.doksakura.com/images/MCBG.jpeg)">
+<div class="container p-4 d-flex justify-content-center align-items-center min-vh-100">
+    <form class="bg-white p-5 rounded-5" th:href="@{/login}" method="post">
+        <input name="id" type="hidden" th:value="${uuid}">
+        <div class="text-center"><h4>Login - เข้าสู่ระบบ</h4></div>
+        <div class="my-3">
+            <label class="form-label">ชื่อผู้เล่น</label>
+            <input class="form-control" th:placeholder="${name}" th:value="${name}" disabled>
+            <input name="name" type="hidden" th:value="${name}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">อีเมลล์</label>
+            <input class="form-control" th:placeholder="${email}" th:value="${email}" disabled>
+            <input name="email" type="hidden" th:value="${email}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">รหัสผ่าน</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div th:if="${error}" class="text-danger m-2">รหัสผ่านไม่ถูกต้อง</div>
+        <div class="flex">
+            <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+            <a class="btn btn-link mx-3" th:href="@{/reset(uuid=${uuid})}">ลืมรหัสผ่าน</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

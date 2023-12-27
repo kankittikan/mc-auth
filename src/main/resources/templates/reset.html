@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reset - MC Doksakura</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body style="background-image: url(https://content.doksakura.com/images/MCBG.jpeg)">
+<div class="container p-4 d-flex justify-content-center align-items-center min-vh-100">
+    <form class="bg-white p-5 rounded-5" th:href="@{/reset}" method="post">
+        <div class="text-center"><h4>Reset - รีเซ็ทรหัสผ่าน</h4></div>
+        <input name="id" type="hidden" th:value="${uuid}">
+        <div class="my-3">
+            <label class="form-label">ชื่อผู้เล่น</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" disabled th:placeholder="${name}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">อีเมลล์</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" disabled th:placeholder="${email}">
+        </div>
+        <div class="flex">
+            <a class="btn btn-secondary" th:href="@{/login(uuid=${uuid})}">กลับ</a>
+            <button type="submit" class="btn btn-success mx-4">ยืนยัน</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

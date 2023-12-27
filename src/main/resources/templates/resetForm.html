@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reset - MC Doksakura</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body style="background-image: url(https://content.doksakura.com/images/MCBG.jpeg)">
+<div class="container p-4 d-flex justify-content-center align-items-center min-vh-100">
+    <form class="bg-white p-5 rounded-5" th:href="@{/confirmReset}" method="post">
+        <div class="text-center"><h4>Reset - รีเซ็ทรหัสผ่าน</h4></div>
+        <input name="resetId" type="hidden" th:value="${resetId}">
+        <div class="my-3">
+            <label class="form-label">รหัสผ่านใหม่</label>
+            <input type="password" class="form-control" aria-describedby="passwordHelp" name="password">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ยืนยันรหัสผ่าน</label>
+            <input type="password" class="form-control" aria-describedby="passwordHelp" name="confirmPassword">
+        </div>
+        <div class="text-danger" th:text="${error}"></div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success mx-4">ยืนยัน</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
