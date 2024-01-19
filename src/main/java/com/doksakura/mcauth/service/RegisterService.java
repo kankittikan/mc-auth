@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.management.AttributeNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -70,5 +71,13 @@ public class RegisterService {
 
         MapSession.verify.remove(player.getName());
         return MapSession.validate.get(player.getName()).getUuid();
+    }
+    
+    public boolean isRegistered(String uuid) {
+        Validate validate = MapSession.getValidate(uuid);
+        if(validate == null) return false;
+
+        Optional<Player> player = repository.findById(validate.getName());
+        return player.isPresent();
     }
 }

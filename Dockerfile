@@ -1,4 +1,5 @@
-FROM ubuntu:latest
-LABEL authors="kan.kittikan"
+FROM openjdk:17-jdk-slim
+COPY target/mc-auth-0.0.1-SNAPSHOT.jar run.jar
 
-ENTRYPOINT ["top", "-b"]
+EXPOSE 7071
+ENTRYPOINT ["java","-jar","./run.jar"]

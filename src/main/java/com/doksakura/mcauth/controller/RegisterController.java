@@ -27,7 +27,7 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String register(Model model, @RequestParam String uuid) {
-        if(!MapSession.checkInGame(uuid)) return "error";
+        if(!MapSession.checkInGame(uuid) || registerService.isRegistered(uuid)) return "error";
 
         Validate validate = MapSession.getValidate(uuid);
         if(validate == null) return "redirect:/error";

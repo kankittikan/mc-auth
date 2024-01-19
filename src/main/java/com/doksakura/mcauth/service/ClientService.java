@@ -25,5 +25,6 @@ public class ClientService {
     public void logout(String name) {
         MapSession.granted.remove(name);
         MapSession.validate.remove(name);
+        MapSession.verify.remove(name);
     }
 }
